@@ -33,6 +33,7 @@ umd_fees_pct <- umd_fees |> mutate(pct_change = (`Fall 2026`- `Fall 2021`)/`Fall
 
 Write a few sentences about what you found in those percentages. What's the story here? What questions do you have?
 
+Athletics didn't chance at all, which is weird because I've read reports of new buildings, renovations, and salary bumps going into the atheistic programs here at UMD. I also want to know if the Shuttle Bus' gas price are being passed on to the students.
 
 
 
