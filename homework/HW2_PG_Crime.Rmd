@@ -12,7 +12,7 @@ You will need to load the tidyverse library
 
 ```
 
-Then you'll load the data from the web. The URL for the data is: https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/pg_crime_totals_2024.csv. You will create a dataframe called `pg_crime` that contains the data from this URL.
+Then you'll load the data from the web. The URL for the data is: https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/pg_crime_totals_2024.csv. You will creathghghe a dataframe called `pg_crime` that contains the data from this URL.
 
 ### Task 2: Load the Data and Describe It
 
