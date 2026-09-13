@@ -9,6 +9,8 @@ In this assignment, we will be working with a dataset containing information abo
 You will need to load the tidyverse library
 
 ```{r}
+library(tidyverse)
+library(janitor)
 ```
 
 Then you'll load the data from the web. The URL for the data is: https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/white_house_salaries_2026.csv. You will create a dataframe called `wh_salaries` that contains the data from this URL.
@@ -16,19 +18,23 @@ Then you'll load the data from the web. The URL for the data is: https://raw.git
 ### Task 2: Load the Data and Describe It
 
 ```{r}
+wh_salaries <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/white_house_salaries_2026.csv")
+
+wh_salaries <- clean_names(wh_salaries)
 ```
+
 ### Task 3: Describe the Data
 
 You should examine that dataframe carefully by clicking on it in the Environment tab in RStudio. Write a couple of sentences describing the categories of incidents. From a reporting standpoint, what stands out to you about this data? Are there any salary values that will cause problems for analysis?
 
-ANSWER HERE
+What stands out the most is that people who work alongside the president make a lot of money for the most part. There are some employees that are reported to make nothing which is interesting.
 
 ### Task 4: Calculate the Mean and Median of the Salaries
 
 Write code to calculate the mean and median of the salaries in the dataset using the `summarize()` function. You don't need to make a new dataframe, just display the results.
 
 ```{r}
-
+wh_salaries |> summarize(mean_salary = mean(salary, na.rm = TRUE), median_salary = median(salary, na.rm = TRUE))
 ```
 
 ### Task 5: Add in the minimum and maximum salaries
@@ -36,17 +42,19 @@ Write code to calculate the mean and median of the salaries in the dataset using
 Take the code you just wrote and add in the minimum and maximum salaries (the functions for that are `min()` and `max()`). Your results should show four columns: mean_salary, median_salary, min_salary, max_salary.
 
 ```{r}
-
+wh_salaries |> summarize(mean_salary = mean(salary, na.rm = TRUE), median_salary = median(salary, na.rm = TRUE), min_salary = min(salary, na.rm = TRUE), max_salary = max(salary, na.rm = TRUE))
 ```
+
+
 
 ### Task 6: Describe the Results
 
 Write a couple of sentences describing the results of your analysis. What do the mean and median salaries tell you about the data? What do the minimum and maximum salaries tell you? Are there any outliers in the data?
 
-ANSWER HERE
+The mean tells me on average employees of the white house make an average of $112,702 per year. The median tells me that the majority of those who work in the white house make more than $100,000 per year. The maximum tells me how much the top earner in making which is $197,200. But the minimum tells us that someone is making no money at all.
 
 ### Task 7: Story Idea
 
 Based on the data, what is your best story idea? What is the next step you would take to develop that story idea?
 
-ANSWER HERE
+I would want to make a interactive section of my story where my audience has to attempt to match the salaries to certain position in the white house. After arranging, the story will go into detail about the importance, duties and experience required for each position. To get all this information wer can do FOIA requests.
