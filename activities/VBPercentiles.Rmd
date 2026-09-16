@@ -39,6 +39,7 @@ team_aces |> mutate(percentile = ntile(total_aces, 100))
 
 Write a couple of sentences that puts Maryland into context with the other teams in the dataset. You can do some Internet research to help with this.
 
+Maryland is ranked No. 19, remaining in the 95th percentile over other teams. This means that they scored higher than 95% of other school on this list, and only 5% of the school on this list rank above them.
 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
