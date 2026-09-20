@@ -59,3 +59,16 @@ The tourist city, famous for its boardwalk and summer teen employment, saw a dro
 ### Task 9: Save Your Work and Put it on GitHub
 
 Save this notebook, then commit it to your local repository. Push the changes to your GitHub repository and submit the URL for this file in ELMS.
+
+Homework 5 Begins Here
+
+```{r}
+md_cities_percentiles <- md_cities_rates |> mutate(percentile = ntile (violent_rate_2020,100))
+```
+
+```{r}
+md_cities_percentiles |> summarize(iqr_crime = IQR(violent_rate_2020, na.rm = TRUE))
+```
+
+
+These result do not change my best story idea because I would'nt attempt to explain the IQR to my readers. I've been taught that infomration for them should be simplified so they can understand. The IQR is useful for me, though, to better help me undertsand the data I'm looking at.
