@@ -71,4 +71,4 @@ md_cities_percentiles |> summarize(iqr_crime = IQR(violent_rate_2020, na.rm = TR
 ```
 
 
-These result do not change my best story idea because I would'nt attempt to explain the IQR to my readers. I've been taught that infomration for them should be simplified so they can understand. The IQR is useful for me, though, to better help me undertsand the data I'm looking at.
+These result do not change my best story idea because I wouldn't attempt to explain the IQR to my readers. I've been taught that information for them should be simplified so they can understand. The IQR is useful for me, though, to better help me understand the data I'm looking at.
