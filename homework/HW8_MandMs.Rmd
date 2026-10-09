@@ -6,26 +6,54 @@ In this assignment, you'll be picking up where you left off with the M&Ms activi
 
 ### Task 1: Load the tidyverse
 
+```{r}
+library(tidyverse)
+```
+
+
 
 ### Task 2: Load the M&Ms dataset from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/mandms.csv
 
+```{r}
+MM_data <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/mandms.csv")
+```
 
 ### Task 3: Sample 5 rows of data from the dataset
+
+```{r}
+set.seed(40)
+sample_5 <- MM_data |> sample_n(5)
+#mean(sample_50$unaffiliated)
+```
 
 
 ### Task 4: Calculate the mean age and standard deviation of the sample, using either the red or black number of M&Ms
 
+```{r}
+mean(sample_5$red)
+sd(sample_5$red)
+```
+
 
 ### Task 5: Calculate the mean age and standard deviation of the population, using the same measure as in Task 4
+
+```{r}
+mean(MM_data$total)
+sd(MM_data$total)
+```
 
 
 ### Task 6: Compare the sample and population statistics
 
 Compare the two sets of means and standard deviations. Are they similar?
 
+The two means are very different. The population mean is much larger than the sample size's mean. The sample and puopulation have similar standard deviations with only 7 points apart. 
+
+
 ### Task 7: Describe the results
 
 Write a few sentences about what you found in the data. What does this tell you about the M&Ms dataset and about the act of random sampling?
 
+All of the total are over 100, which let's me know that the scoops were not controlled, giving us a random samples.
 
 When finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
