@@ -41,7 +41,7 @@ sleep_stats
 
 **Answer this question:** Based on these numbers alone, what would you tell the health reporter? Why might it be risky to report the average as the definitive answer for all students?
 
-ANSWER HERE
+Based on these numbers alone, I would tell the health reporter that student are getting more than the CDC's recommended amount of sleep a night. However, I would also tell them that this sample is not well picked because it was taken from a class f only journalism student at the beginning of the semester. I would tell her she should not use this data as a definitive answer in her reporting.
 
 ### Task 3: Calculate the standard error
 
@@ -58,7 +58,7 @@ sleep_stats
 
 **Answer this question:** The standard error is much smaller than the standard deviation. Why? What does each one measure?
 
-ANSWER HERE
+Standard deviation measures how far apart the data is from the average while standard error tells us how much mean would vary if we took another sample of the same amount. It would make sense that the standard error would be smaller because the chance of error which is lower than the actual amount of data itself.
 
 ### Task 4: Calculate a 95% confidence interval
 
@@ -79,7 +79,7 @@ sleep_stats |>
 
 **Answer this question:** Write one sentence explaining what this confidence interval means in plain English that a reader would understand.
 
-ANSWER HERE
+This confidence interval means that we with 95% confidence the average of our sample falls between 7.27 and 8.18.
 
 ### Task 5: Visualize the distribution with the confidence interval
 
@@ -112,7 +112,7 @@ ggplot(sleep_data, aes(x = hours)) +
 
 **Answer this question:** Look at the chart. Notice that the confidence interval is much narrower than the spread of individual data points. Why? What's the difference between the variation in individual sleep hours and the uncertainty about the average?
 
-ANSWER HERE
+The certainty in the confidence level has narrowed because the mean is more likely to be at or above 7. 
 
 ### Task 6: The CDC question — is 7 hours within the interval?
 
@@ -134,7 +134,7 @@ sleep_stats |>
   b) "Students May Not Be Getting Enough Sleep, Survey Suggests"
   c) "Survey: Students Getting Recommended Amount of Sleep"
 
-ANSWER HERE
+The best headline would be a becuase the mean line falls above 7 on the graph.
 
 ### Task 7: What about a bigger sample?
 
