@@ -58,4 +58,4 @@ weekly_wmata |>
 
 **Answer this question:** Describe the trend you see. Is ridership going up, down, or staying flat? What are the big dips, and what might explain them? What would you want to know before writing a story about Metro weekly ridership trends?
 
-ANSWER HERE
+Ridership is ultimately going up, but we see three big dips towards the 2026-01 week. These dips show a drop in ridership which could come from the government shutdown that happened during times the dips occur.
