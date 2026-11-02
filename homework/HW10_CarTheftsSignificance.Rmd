@@ -1,6 +1,6 @@
 ---
 title: "HW10: Significance Testing & Effect Size"
-name: REPLACE WITH YOUR NAME
+name: Caleb Winters
 ---
 
 You previously calculated the mean, margin of error and confidence interval for monthly car thefts in Prince George's County. Your editor now wants to know: it _looks_ like car thefts are decreasing lately, but is that change real, and how big is it? In this assignment, you'll use significance testing and effect size to answer those questions. Load the tidyverse and the data to get started.
@@ -9,7 +9,7 @@ You previously calculated the mean, margin of error and confidence interval for 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-# LOAD THE TIDYVERSE
+library(tidyverse)
 ```
 
 ```{r}
@@ -24,9 +24,9 @@ car_thefts <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/h
 
 We'll split the monthly data into two halves, and then ask whether there's a statistically significant difference between these periods. To do that, we'll use a t-test with our alpha at 0.05. First, fill in the hypotheses, then replace the REPLACE_ME values in the code.
 
-**Null Hypothesis:** REPLACE_ME
+**Null Hypothesis:** Car thefts are not decreasing.
 
-**Alternative Hypothesis:** REPLACE_ME
+**Alternative Hypothesis:** Car thefts are decreasing.
 
 ```{r}
 
@@ -46,7 +46,7 @@ t_test_periods
 
 **Answer this question:** What is the p-value? Is it less than 0.05? Can we reject the null hypothesis? What does this tell your editor?
 
-PUT ANSWERS HERE
+The p-value is less than 0.05, which means I reject the null. This tells my editor that decrease in the car thefts are real.
 
 ### Task 3: Visualize the comparison (4 points)
 
@@ -57,11 +57,11 @@ Let's see the two periods side by side with their confidence intervals. Replace 
 period_summary <- car_thefts |>
   group_by(period) |>
   summarize(
-    mean_thefts = mean(REPLACE_ME),
+    mean_thefts = mean(total),
     sd_thefts = sd(total),
     months = n(),
     se_thefts = sd_thefts / sqrt(months),
-    margin_error = qt(0.975, df = REPLACE_ME - 1) * se_thefts,
+    margin_error = qt(0.975, df = month - 1) * se_thefts,
     ci_lower = mean_thefts - margin_error,
     ci_upper = mean_thefts + margin_error
   )
