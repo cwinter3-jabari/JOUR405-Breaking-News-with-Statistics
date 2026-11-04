@@ -232,7 +232,13 @@ kable(comparison, digits = 1, caption = "Difference Between Weighted and Unweigh
 **Answer These Questions:**
 
 1. Which voter category shows the biggest difference between weighted and unweighted results?
+The rarely/never category of voters shows the largest weighted and underweight point difference results.
 
 2. How might these differences affect reporting on likely voter turnout?
+Since rarely/never voters reportedly lost the most weight, the polls might see more of these voters at the polls.
 
 3. Why do you think these differences exist? What does this tell us about who might be over or under-represented in the sample?
+It's possible that always and sporadic voters are more represented in this sample. This might be why rarely/never voters lose so much weight. This difference may exist because of the stigmatization that comes with not voting in some places.
+
+
+
