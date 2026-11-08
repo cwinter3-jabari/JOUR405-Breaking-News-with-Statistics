@@ -145,7 +145,7 @@ ggplot(viz_data, aes(x = educ, y = percentage, fill = Type)) +
 
 **Question 4:** Which education group shows the biggest shift between weighted and unweighted results? In percentage points, how large is that shift? Does weighting change the story, or does it just change the exact numbers?
 
-The biggest shift was in high school or less surveyors. It firsted by 3 points or 2.7 percentage point. 
+The biggest shift was in high school or less surveyors. It changed by decreasing 3 points or 2.7 percentage points. It changes story because since their weight brought them down, it means that they were over represented and their responses had to accounted for less than other groups. This weighting gives a more accurate depiction of the voting attitude of high school or less surveyors. 
 
 ## Task 6: The UMD Belonging Survey (8 points)
 
@@ -153,4 +153,8 @@ Earlier in class this week, we looked at the 2024 UMD Belonging and Community Su
 
 **Question 5:** Based on what you've learned in this assignment, write 2-3 paragraphs as if you were a reporter evaluating the UMD survey before writing a story based on it. Address: (1) what the lack of weighting means for how you'd use the results, (2) which groups in the UMD survey appeared most underrepresented based on Figures 1 and 2, and (3) what question you would ask the survey's authors before publishing.
 
-ANSWER HERE
+With a lack of weighing, the data will show that college students will intend to vote the most during the upcoming election. However, upon weighting everyone's response, the high school or less group lowered by 2.7 percentage points. This means that they were overrepresented in the survey.
+
+This tells us that the high school or less group will appear will more than likely intend to vote more than the data originally anticipated.
+
+The most underrepresented group in this survey is the high school or less group. They are at least 10 points behind some college students and 20 points. I would ask them about the questions they asked on the survey. I would like to know if any were open-ended, leaving their answer up to interpretation by the surveyors.
