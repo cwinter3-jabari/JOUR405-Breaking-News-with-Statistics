@@ -1,0 +1,47 @@
+---
+title: "Reporters Without Boarders Data Analysis"
+output: html_notebook
+---
+
+In my final project, I will be looking at Reporters Without Boarder's World Freedom Index. The international nonprofit's mission is to defend the freedom of information by protecting journalists worldwide.
+
+Every year, RSF publishes their World Freedom Press Freedom Index, a chart that tracks 180 countries' state of journalism. They look at factors including:
+
+1. If journalists can make a livable wage (Economic factor)
+2. If journalists are viewed as helpers of society (Social factor)
+3. If journalists are supported by their governments (Political factor)
+4. If journalists are safe reporting in their country (Safety factor)
+5. If laws support the work of journalists (Legal factor)
+
+
+All of these factors are added together to give a country an overall score that tells a country's state of journalism. These overall scores change from year to year as a country's state of journalism improves or worsens.
+
+In my final project, I will see if Latin American countries experienced larger drops in overall scores from 2025 - 2026 compared to the rest of the world.
+
+My first step is to install my libraries, upload the data and clean it.
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+```{r}
+freedom_index_2026 <- read_csv("data/rsf_data_2026.csv")
+freedom_index_2026 <- freedom_index_2026 |> clean_names()
+```
+
+This is the first set of rsf data from 2026. Let's look at it.
+
+```{r}
+freedom_index_2026 |> tibble()
+```
+
+Great! Not only do we have each countries' score, but we also have each countries' ranking for each category.
+
+Now, let's see the data from last year.
+
+```{r}
+freedom_index_2025 <- read_csv("data/rsf_data_2025.csv")
+freedom_index_2025 <- freedom_index_2025 |> clean_names()
+```
+
