@@ -21,7 +21,7 @@ matches26 <- read_csv("https://raw.githubusercontent.com/dwillis/NCAAWomensSocce
 ### Task 3: Create a new column called `goal_diff` that calculates the difference between the two teams' goals.
 
 ```{r}
-matches <- matches |> mutate(goal_diff = team_score - opponent_score)
+matches <- matches26 |> mutate(goal_diff = team_score - opponent_score)
 ```
 
 
@@ -49,5 +49,7 @@ matches |>
 
 ### Task 6: Describe the results of both the correlation calculation and the scatterplot.
 
+
+There correlation relation is -0.02, which indicates no linear relationship between the two variables. While the relationship is negative, knowing the team's foul count will not accurately give you the ability to predict the team's score count.
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
