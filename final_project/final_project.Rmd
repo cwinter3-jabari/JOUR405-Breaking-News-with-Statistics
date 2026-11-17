@@ -3,6 +3,19 @@ title: "Reporters Without Boarders Data Analysis"
 output: html_notebook
 ---
 
+
+Homework for Nov 16.
+
+The two main test I was considering doing was:
+
+1. Confidence Interval/Margin of error (Setting a margin of error/confidence interval can help me know how far off my averages might be.)
+
+2. A T-test via random sampling. (I can see if I take a random sample of 10 countries from the Americas and random sample of 10 countries from elsewhere and run a t-test the percentage change of countries from the Americas will always be lower.)
+
+
+
+
+
 In my final project, I will be looking at Reporters Without Boarder's World Freedom Index. The international nonprofit's mission is to defend the freedom of information by protecting journalists worldwide.
 
 Every year, RSF publishes their World Freedom Press Freedom Index, a chart that tracks 180 countries' state of journalism. They look at factors including:
@@ -16,7 +29,7 @@ Every year, RSF publishes their World Freedom Press Freedom Index, a chart that 
 
 All of these factors are added together to give a country an overall score that tells a country's state of journalism. These overall scores change from year to year as a country's state of journalism improves or worsens.
 
-In my final project, I will see if Latin American countries experienced larger drops in overall scores from 2025 - 2026 compared to the rest of the world.
+In my final project, I will see if countries in the Americans experienced larger drops in overall scores from 2025 - 2026 compared to the rest of the world.
 
 My first step is to install my libraries, upload the data and clean it.
 
@@ -44,4 +57,39 @@ Now, let's see the data from last year.
 freedom_index_2025 <- read_csv("data/rsf_data_2025.csv")
 freedom_index_2025 <- freedom_index_2025 |> clean_names()
 ```
+
+
+Using this code, I can combine both of my data frames into a single data set. It will also give us the percentage changes fro each country from 2025 - 2026. (Thanks, Derek!)
+
+```{r}
+score_changes <- freedom_index_2026 |>
+  select(iso, country, score_2026, americas) |>
+  inner_join(
+    freedom_index_2025 |> select(iso, score_2025),
+    by = "iso"
+  ) |>
+  mutate(change = score_2026 - score_2025)
+```
+
+Now let's see what the America look like
+
+```{r}
+score_changes |> filter(americas == "Yes")
+```
+
+Let's find the average percentage point change and standard deviation of countries in the Americas.
+
+```{r}
+america_mean <- score_changes |> filter(americas == "Yes") |> summarize(mean = mean(change), sd = sd(change))
+```
+
+Now, let's look at every other country elsewhere.
+
+```{r}
+elsewhere_mean <- score_changes |> filter(americas == "No") |> summarize(mean = mean(change), sd = sd(change))
+```
+
+Interesting! Countries in the Americas saw a larger drop in percentage points than countires everywhere else. At first glance, this means that countries in the Americas have a worse climate for journalism. But let's create confidence intervals to test this further by running a t-test.
+
+
 
