@@ -32,7 +32,7 @@ schools |> arrange(`FARMS Pct`) |> head(10)
 
 Look at the distribution of FARMS percentages. Do any values look unusual or suspicious? What might it mean if a school has a FARMS percentage of exactly 100? Write two or three sentences describing what you see and whether anything concerns you.
 
-ANSWER HERE
+I notice that the higher the percentage points 
 
 
 ### Task 2: Create a Scatterplot and Describe the Results
@@ -50,7 +50,7 @@ schools |>
 
 Describe what you see. Is there a clear trend? Does the regression line look like it represents the data well, or does it seem to be pulled in an odd direction? Connect what you observed in Task 1 to what you see here.
 
-ANSWER HERE
+I noticed that the nearly none of the points touch or follow the regression line closely. I wouldn't be able to tell if the data was moving in a certain direction without the regression line.
 
 
 ### Task 3: Run the Regression Model
