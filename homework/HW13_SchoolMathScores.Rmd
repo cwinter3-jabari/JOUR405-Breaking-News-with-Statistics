@@ -63,7 +63,7 @@ summary(model)
 Report the three key statistics: the p-value, the Adjusted R-squared, and the coefficient for FARMS Pct. Then interpret them together — not separately. What does the combination of these three numbers tell you about the relationship between poverty and math scores in Montgomery County, Md.? Is this model worth using? How does it compare to the Pennsylvania model?
 
 Coefficient: -0.595 (Strong negative relationship)
-p-value: 0.0000000000000002 (Statically significant)
+p-value: 0.0000000000000002 (Statistically significant)
 Adjusted R-squared: 0.6734 (67.3%)
 
 This is all more statically significant than Pennsylvania
