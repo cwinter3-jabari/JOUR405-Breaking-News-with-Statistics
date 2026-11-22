@@ -92,8 +92,9 @@ For each of the two schools, answer:
 - Does anything in that profile help explain why the school is over- or under-performing the model?
 - What would your first reporting question be to the principal of that school?
 
-ANSWER HERE
+The school with the largest positive residual is Fox Chapel Elementary with 56.7% FARMS. The model predicted 34.3% of students would meet expectations, but 64.3% actually did. The lagest negative is Germantown Elementary.
 
+After looking the two schools up, it makes the gap more surprising. Germantown's FARM rate is lower than Fox Chapel's and it surrounding zip code has high median income and a large level of adults who received a college education.
 
 ### Task 5: Evaluate the Model and Write the Pitch (7 points)
 
@@ -101,4 +102,4 @@ You've now run this analysis on two counties. Return to the school board member'
 
 Write a short story pitch of 4-6 sentences that addresses all of the following: Does the Maryland data support or contradict the claim? How does it compare to what you found in Pennsylvania? What would you ask the school board member if you called them for comment? And what's the most interesting specific finding from your residuals analysis: which school would you want to visit first, and why?
 
-ANSWER HERE
+Data from Montgomery County elementary schools strongly support the school board member's claim, showing that student poverty accounts for 67.3% in math proficiency, with scores dropping nearly 0.6 percentage points for every 1% rise in free and reduced meal enrollment.
