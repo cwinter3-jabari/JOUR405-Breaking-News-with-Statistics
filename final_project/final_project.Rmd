@@ -68,7 +68,10 @@ score_changes <- freedom_index_2026 |>
     freedom_index_2025 |> select(iso, score_2025),
     by = "iso"
   ) |>
-  mutate(change = score_2026 - score_2025)
+  mutate(
+    change = score_2026 - score_2025,
+    pct_change = ((score_2026 - score_2025) / score_2025) * 100
+  )
 ```
 
 Now let's see what the America look like
