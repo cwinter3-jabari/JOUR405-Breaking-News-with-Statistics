@@ -18,7 +18,7 @@ The two main test I was considering doing was:
 
 In my final project, I will be looking at Reporters Without Boarder's World Freedom Index. The international nonprofit's mission is to defend the freedom of information by protecting journalists worldwide.
 
-Every year, RSF publishes their World Freedom Press Freedom Index, a chart that tracks 180 countries' state of journalism. They look at factors including:
+Every year, RSF publishes their World Press Freedom Index, a chart that tracks 180 countries' state of journalism. They look at factors including:
 
 1. If journalists can make a livable wage (Economic factor)
 2. If journalists are viewed as helpers of society (Social factor)
@@ -27,9 +27,9 @@ Every year, RSF publishes their World Freedom Press Freedom Index, a chart that 
 5. If laws support the work of journalists (Legal factor)
 
 
-All of these factors are added together to give a country an overall score that tells a country's state of journalism. These overall scores change from year to year as a country's state of journalism improves or worsens.
+All of these factors are added together to give a country an overall grade, scoring a country's state of journalism. These scores change from year to year as a country's state of journalism improves or worsens.
 
-In my final project, I will see if countries in the Americans experienced larger drops in overall scores from 2025 - 2026 compared to the rest of the world.
+In my final project, I will see if countries in the Americas experienced larger drops in overall scores from 2025 - 2026 compared to the rest of the world.
 
 My first step is to install my libraries, upload the data and clean it.
 
@@ -59,7 +59,7 @@ freedom_index_2025 <- freedom_index_2025 |> clean_names()
 ```
 
 
-Using this code, I can combine both of my data frames into a single data set. It will also give us the percentage changes fro each country from 2025 - 2026. (Thanks, Derek!)
+Using this code, I can combine both of my data frames into a single data set. It will also give us the percentage changes from each country from 2025 - 2026. (Thanks, Derek!)
 
 ```{r}
 score_changes <- freedom_index_2026 |>
@@ -69,7 +69,6 @@ score_changes <- freedom_index_2026 |>
     by = "iso"
   ) |>
   mutate(
-    change = score_2026 - score_2025,
     pct_change = ((score_2026 - score_2025) / score_2025) * 100
   )
 ```
@@ -83,16 +82,47 @@ score_changes |> filter(americas == "Yes")
 Let's find the average percentage point change and standard deviation of countries in the Americas.
 
 ```{r}
-america_mean <- score_changes |> filter(americas == "Yes") |> summarize(mean = mean(change), sd = sd(change))
+america_mean <- score_changes |> filter(americas == "Yes") |> summarize(mean = mean(pct_change), sd = sd(pct_change), median = median(pct_change))
 ```
 
 Now, let's look at every other country elsewhere.
 
 ```{r}
-elsewhere_mean <- score_changes |> filter(americas == "No") |> summarize(mean = mean(change), sd = sd(change))
+elsewhere_mean <- score_changes |> filter(americas == "No") |> summarize(mean = mean(pct_change), sd = sd(pct_change), median = median(pct_change))
 ```
 
-Interesting! Countries in the Americas saw a larger drop in percentage points than countires everywhere else. At first glance, this means that countries in the Americas have a worse climate for journalism. But let's create confidence intervals to test this further by running a t-test.
+Interesting! Countries in the Americas saw a larger drop in percentage points with an average of -1.13 than countries everywhere else. In fact, the countries elsewhere saw a positive percentage point increase by 0.25.
+
+Now, let graph our findings using a boxplot.
+
+
+```{r}
+ggplot(score_changes, aes(x = americas, y = pct_change)) +
+  geom_boxplot(width = 0.5) +
+  theme_minimal() +
+  labs(title = "Press Freedom Score Changes (2025-2026)",
+       x = "Americas",
+       y = "Percentage Change (%)",
+       caption = "Source: Reporters Without Borders")
+```
+# (Ask Derek about how to adjust the size an with of your box plots)!!
 
 
 
+Now, let's try a t-test to see if our findings our statsically significant.
+
+**Null Hypothesis (H₀):** The average score is the same in both groups.
+
+**Alternative Hypothesis (H₁):** The average score is not the same in both groups.
+
+(I used AI to help me with this part. I was confused if I needed to split the two groups that were in a single data frame. AI told me that I needed to make another data frame that mutate the first to give me the categories I need to make the t-test possible.)
+```{r}
+score_changes_grouped <- score_changes |>
+  mutate(
+    region_group = if_else(americas == "Yes", "Americas", "Rest of World")
+  )
+
+t.test(pct_change ~ region_group, data = score_changes_grouped)
+```
+
+With a p-value of 0.408, the drop is not statically significant. We cannot drop the null. Though, the drop is still there.
